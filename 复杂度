@@ -1,0 +1,9 @@
+Upper bounds. T(n) is O(f(n)) if there exist constants c>0 and n0>=0 
+such that for all n>=n0 we have T(n)<=c*f(n).
+
+Lower bounds. T(n) is Ω(f(n)) if there exist constants c>0 and n0>=0 
+such that for all n>=n0 we have T(n)》=c*f(n).
+
+Tight bounds. T(n) is Θ(f(n)) if T(n) is both O(f(n)) and  Ω(f(n)).
+
+logn < n < nlog n < n^x < r^n < n!

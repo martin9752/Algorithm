@@ -1,0 +1,6 @@
+BFS algorithm
+
+L0 = { s }.
+L1 = all neighbors of L0.
+L2 = all nodes that do not belong to L0 or L1, and that have an edge to a node in L1.
+L（i+1） = all nodes that do not belong to an earlier layer, and that have an edge to a node in Li.

@@ -1,0 +1,43 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<malloc.h>
+using namespace std;
+
+int distance(string a,string b,int k){
+    int x=a.length();
+    int y=b.length();
+    int **v=(int **)malloc(sizeof(int *)*(x+1));
+    for(int i=0;i<=x;i++){
+    v[i]=(int *)malloc(sizeof(int)*(y+1));
+    }
+
+    v[0][0]=0;
+    for(int i=1;i<=y;i++)
+    v[0][i]=i*k;
+    for(int i=1;i<=x;i++)
+    v[i][0]=i*k;
+
+    int min=1000000;
+    for(int i=1;i<=x;i++){
+    for(int j=1;j<=y;j++){
+        if(v[i-1][j]+k<min)
+            min=v[i-1][j]+k;
+        if(v[i][j-1]+k<min)
+            min=v[i][j-1]+k;
+        if(v[i-1][j-1]+abs(a[i-1]-b[j-1])<min)
+            min=v[i-1][j-1]+abs(a[i-1]-b[j-1]);
+        v[i][j]=min;
+        min=1000000;
+    }
+    }
+    return v[x][y];
+}
+
+int main(){
+    string a,b;
+    int k;
+    cin>>a>>b>>k;
+    int s=distance(a,b,k);
+    cout<<s<<endl;
+}
